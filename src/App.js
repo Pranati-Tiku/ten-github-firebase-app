@@ -23,6 +23,10 @@ import { UserContext } from './context/UserContext';
 import Footer from './Layout.js/Footer';
 import NavBar from './Layout.js/NavBar';
 
+import { FirebaseConfig } from './Config/FirebaseConfig';
+//init firebase
+firebase.initializeApp(FirebaseConfig)
+
 const App=()=> {
   //v.imp to keep it null
   const[user,setUser]=useState(null)

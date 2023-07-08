@@ -1,12 +1,13 @@
 import React,{useContext,useState} from "react";
 import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavbarText } from "reactstrap";
 
-import { NavLink,Link } from "react-router-dom";
+import { NavLink,Link, useNavigate } from "react-router-dom";
 
 import { UserContext } from "../context/UserContext";
 
 const NavBar=()=>{
     const context=useContext(UserContext)
+    const navigate=useNavigate();
     const[isOpen,setIsOpen]=useState(false)
     const toggle=()=>setIsOpen(!isOpen)
 return(
@@ -22,15 +23,16 @@ return(
         <Nav className="ms-auto" navbar>
             {context.user ? ( 
             <NavItem>
-                <NavLink to="/" style={{textDecoration:"none"}} className="text-white p-2">LogOut</NavLink>
+                <NavLink onClick={()=>{context.setUser(null)
+                navigate("/")}} style={{textDecoration:"none"}} className="text-white p-2">LogOut</NavLink>
             </NavItem>
             ):(
             <>
             <NavItem>
-                <NavLink to="/" style={{textDecoration:"none"}} className="text-white p-2">SignUp</NavLink>
+                <NavLink to="/signin" style={{textDecoration:"none"}} className="text-white p-2">SignIn</NavLink>
             </NavItem>
             <NavItem>
-                <NavLink to="/" style={{textDecoration:"none"}} className="text-white p-2">SignUp</NavLink>
+                <NavLink to="/signup" style={{textDecoration:"none"}} className="text-white p-2">SignUp</NavLink>
              </NavItem>
             </>
             )}
