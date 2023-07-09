@@ -3,8 +3,10 @@ import { Container,Row,Col,Form,FormGroup,Input,Label,Card,CardFooter,CardBody,C
 import firebase from "firebase/compat/app"
 import { toast } from "react-toastify";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const SignIn=()=>{
+    const navigate=useNavigate();
     const context=useContext(UserContext)
     const[email,setEmail]=useState("")
     const[password,setPassword]=useState("")
@@ -25,6 +27,9 @@ const SignIn=()=>{
     const handleSubmit=(e)=>{
         e.preventDefault()
         handleSignIn();
+    }
+    if(context.user?.uid){
+        navigate("/")
     }
     return (
      <Container className="text-center">

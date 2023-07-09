@@ -23,8 +23,11 @@ return(
         <Nav className="ms-auto" navbar>
             {context.user ? ( 
             <NavItem>
-                <NavLink onClick={()=>{context.setUser(null)
-                navigate("/")}} style={{textDecoration:"none"}} className="text-white p-2">LogOut</NavLink>
+                <NavLink to="/signin" onClick={(e)=>{
+                    e.preventDefault();
+                context.setUser(null)
+                navigate("/signin")}
+                } style={{textDecoration:"none"}} className="text-white p-2">LogOut</NavLink>
             </NavItem>
             ):(
             <>

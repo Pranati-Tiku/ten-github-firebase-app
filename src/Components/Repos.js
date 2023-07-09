@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import { ListGroup,ListGroupItem } from "reactstrap";
 import axios from "axios";
 
-const Repos=(repos_url)=>{
+const Repos=({repos_url})=>{
 const[repos,setRepos]=useState([])
 const fetchRepos=async()=>{
    const {data}=await axios.get(repos_url)

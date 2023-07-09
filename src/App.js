@@ -1,8 +1,8 @@
-import { useState,useContext } from 'react';
+import { useState,useContext, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //react router
-import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom"
+import {BrowserRouter as Router,Routes,Route,Link, useNavigate} from "react-router-dom"
 
 //Toast
 import { ToastContainer,toast } from 'react-toastify';
